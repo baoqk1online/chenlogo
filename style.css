@@ -6,3 +6,17 @@ body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padd
 .image-container { display:flex; flex-wrap: wrap; margin-top:10px; }
 .image-box { margin:5px; text-align:center; width:120px; }
 .preview-img { width:120px; height:auto; border:1px solid #ccc; border-radius:4px; }
+footer {
+    /* Đẩy phần footer xuống dưới một chút */
+    margin-top: 50px; 
+    /* Căn giữa chữ */
+    text-align: center;
+    /* Thêm một đường kẻ mỏng phía trên để phân biệt với nội dung chính */
+    border-top: 1px solid #ddd;
+    /* Thêm khoảng đệm */
+    padding: 15px 0;
+    /* Thiết lập cỡ chữ nhỏ hơn */
+    font-size: 0.9em;
+    /* Làm mờ chữ một chút */
+    color: #666; 
+}
