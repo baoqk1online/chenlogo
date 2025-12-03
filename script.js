@@ -104,5 +104,5 @@ downloadAllBtn.addEventListener('click', function() {
     link.href = imgObj.data;
     link.click();
   });
-  alert('Đã tải xuống tất cả ảnh!');
+    log.innerHTML += `<p style='color:green;'>Đã tải xuống tất cả ảnh!</p>`;
 });
