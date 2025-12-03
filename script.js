@@ -33,7 +33,7 @@ imageUpload.addEventListener("change", function(e) {
     };
     reader.readAsDataURL(file);
   });
-  log.innerHTML = `<p>Đã chọn ${uploadedFiles.length} ảnh gốc. Bấm "Chèn Watermark" để bắt đầu.</p>`;
+  log.innerHTML = `<p>Đã chọn ${uploadedFiles.length} ảnh gốc. Bấm "Đóng dấu ảnh" để bắt đầu.</p>`;
 });
 
 function processImage(file, index) {
