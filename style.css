@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 16px; }
+.controls { margin-top: 12px; }
+.btn { padding:8px 12px; border-radius:6px; border:1px solid #ccc; background:#f5f5f5; cursor:pointer; }
+.progress-container { width:100%; background:#eee; border-radius:5px; overflow:hidden; margin-top:5px; height:16px; }
+.progress-bar { height:100%; width:0%; background:#4caf50; text-align:center; color:#fff; line-height:16px; font-size:12px; }
+.image-container { display:flex; flex-wrap: wrap; margin-top:10px; }
+.image-box { margin:5px; text-align:center; width:120px; }
+.preview-img { width:120px; height:auto; border:1px solid #ccc; border-radius:4px; }
