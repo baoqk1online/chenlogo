@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="style.css">
+
+
+  <h2>Chèn Watermark hàng loạt (Crop 1500x1000px, xuất JPG, tên thống nhất AC)</h2>
+
+  <label>Tải nhiều ảnh gốc lên (hiển thị preview nhỏ):</label><br />
+  <input type="file" id="imageUpload" accept="image/*" multiple />
+
+  <br /><br />
+  <div class="controls">
+    <button id="applyBtn" class="btn">Chèn Watermark cho tất cả ảnh</button>
+    <button id="downloadAllBtn" class="btn" style="display:none;margin-left:8px;">Tải xuống tất cả</button>
+  </div>
+
+  <div id="progressContainer" class="image-container"></div>
+  <div id="resultContainer" class="image-container"></div>
+
+  <div id="log" style="margin-top:20px;"></div>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script src="script.js"></script>
