@@ -12,7 +12,7 @@ let processedImages = [];
 
 // Load watermark mặc định từ assets/watermark.png
 let watermarkImage = new Image();
-watermarkImage.src = 'assets/bqk1.png';
+watermarkImage.src = 'bqk1.png';
 watermarkImage.onload = () => {
     log.innerHTML += '<p>Watermark mặc định đã sẵn sàng.</p>';
 };
