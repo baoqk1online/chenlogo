@@ -1,22 +1,143 @@
-body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 16px; }
-.controls { margin-top: 12px; }
-.btn { padding:8px 12px; border-radius:6px; border:1px solid #ccc; background:#f5f5f5; cursor:pointer; }
-.progress-container { width:100%; background:#eee; border-radius:5px; overflow:hidden; margin-top:5px; height:16px; }
-.progress-bar { height:100%; width:0%; background:#4caf50; text-align:center; color:#fff; line-height:16px; font-size:12px; }
-.image-container { display:flex; flex-wrap: wrap; margin-top:10px; }
-.image-box { margin:5px; text-align:center; width:120px; }
-.preview-img { width:120px; height:auto; border:1px solid #ccc; border-radius:4px; }
+/* ======================================================================
+   Cấu trúc và Layout Mặc Định (Desktop/Tablet)
+   ====================================================================== */
+body { 
+    /* Font chữ */
+    font-family: Arial, sans-serif; 
+    /* Giới hạn chiều rộng nội dung tối đa */
+    max-width: 900px; 
+    /* Căn giữa và lề trên/dưới */
+    margin: 30px auto; 
+    /* Khoảng đệm ngang mặc định */
+    padding: 0 16px; 
+    line-height: 1.6;
+}
+h1, h2 {
+    color: #333;
+}
+.controls { 
+    /* Khoảng cách phía trên khu vực điều khiển */
+    margin-top: 12px; 
+}
+.btn { 
+    /* Kích thước nút */
+    padding: 8px 12px; 
+    border-radius: 6px; 
+    border: 1px solid #ccc; 
+    background: #f5f5f5; 
+    cursor: pointer; 
+    font-size: 1em;
+    /* Hiệu ứng chuyển tiếp khi di chuột */
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background: #e0e0e0;
+}
+
+/* --- Thanh Tiến Trình --- */
+.progress-container { 
+    width: 100%; 
+    background: #eee; 
+    border-radius: 5px; 
+    overflow: hidden; 
+    margin-top: 5px; 
+    height: 16px; 
+}
+.progress-bar { 
+    height: 100%; 
+    width: 0%; 
+    background: #4caf50; 
+    text-align: center; 
+    color: #fff; 
+    line-height: 16px; 
+    font-size: 12px; 
+    transition: width 0.3s;
+}
+
+/* --- Khu vực Hiển Thị Ảnh --- */
+.image-container { 
+    /* Bật Flexbox để sắp xếp ảnh */
+    display: flex; 
+    /* Cho phép ảnh tự động xuống dòng */
+    flex-wrap: wrap; 
+    margin-top: 10px; 
+    justify-content: flex-start;
+}
+.image-box { 
+    /* Chiều rộng mặc định cho desktop */
+    width: 120px; 
+    margin: 5px; 
+    text-align: center; 
+}
+.preview-img { 
+    width: 120px; 
+    height: auto; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    object-fit: cover;
+}
+.image-box span {
+    display: block;
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 4px;
+    /* Ngắt chữ để tránh tràn ra ngoài hộp */
+    word-break: break-all;
+}
+
+/* --- Footer --- */
 footer {
-    /* Đẩy phần footer xuống dưới một chút */
-    margin-top: 50px; 
-    /* Căn giữa chữ */
-    text-align: center;
-    /* Thêm một đường kẻ mỏng phía trên để phân biệt với nội dung chính */
-    border-top: 1px solid #ddd;
-    /* Thêm khoảng đệm */
-    padding: 15px 0;
-    /* Thiết lập cỡ chữ nhỏ hơn */
-    font-size: 0.9em;
-    /* Làm mờ chữ một chút */
-    color: #666; 
+    margin-top: 50px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding: 15px 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* ======================================================================
+   Media Queries (Thiết Kế Đáp Ứng - Responsive)
+   ====================================================================== */
+
+/* Màn Hình Trung Bình (Tablet, 481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Mở rộng các hộp ảnh hơn một chút cho tablet */
+    .image-box {
+        width: 150px; 
+    }
+    .preview-img {
+        width: 150px; 
+    }
+}
+
+/* Màn Hình Nhỏ (Điện thoại, < 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px; 
+    }
+    
+    /* Nút bấm chiếm toàn bộ chiều rộng và lớn hơn để dễ bấm */
+    .btn {
+        padding: 10px 15px; 
+        font-size: 1.1em;
+        width: 100%; 
+        margin-bottom: 8px;
+    }
+
+    /* Ảnh sẽ hiển thị khoảng 2 ảnh trên một hàng (48% * 2) */
+    .image-box {
+        width: 48%; 
+        margin: 1%;
+    }
+    .preview-img {
+        width: 100%; 
+        height: auto;
+    }
+    
+    /* Làm cho footer nhỏ gọn hơn trên di động */
+    footer {
+        margin-top: 30px;
+        padding: 10px 0;
+        font-size: 0.8em;
+    }
 }
