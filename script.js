@@ -14,7 +14,7 @@ let processedImages = [];
 let watermarkImage = new Image();
 watermarkImage.src = 'Asset 2.png';
 watermarkImage.onload = () => {
-    log.innerHTML += '<p>Watermark mặc định đã sẵn sàng.</p>';
+    log.innerHTML += '<p>Đã sẵn sàng! Xin mời Upload ảnh.</p>';
 };
 
 imageUpload.addEventListener("change", function(e) {
@@ -33,7 +33,7 @@ imageUpload.addEventListener("change", function(e) {
     };
     reader.readAsDataURL(file);
   });
-  log.innerHTML = `<p>Đã chọn ${uploadedFiles.length} ảnh gốc. Bấm "Đóng dấu ảnh" để bắt đầu.</p>`;
+  log.innerHTML = `<p>Đã chọn ${uploadedFiles.length} ảnh. Bấm "Đóng dấu ảnh" để bắt đầu.</p>`;
 });
 
 function processImage(file, index) {
@@ -80,7 +80,7 @@ function processImage(file, index) {
 
 applyBtn.addEventListener('click', async function() {
   if (!watermarkImage) return alert('Watermark chưa sẵn sàng!');
-  if (!uploadedFiles.length) return alert('Hãy chọn ảnh gốc để chèn watermark!');
+  if (!uploadedFiles.length) return alert('Hãy chọn ảnh để chèn watermark!');
 
   log.innerHTML += `<p>Bắt đầu chèn watermark cho ${uploadedFiles.length} ảnh...</p>`;
 
