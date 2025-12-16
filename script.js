@@ -47,11 +47,11 @@ function processImage(file, index) {
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.drawImage(img, 0,0,img.width,img.height, 0,0,canvas.width,canvas.height);
 
-        const scale = 0.35;
+        const scale = 0.38;
         const wmWidth = canvas.width * scale;
         const wmHeight = (watermarkImage.height / watermarkImage.width) * wmWidth;
         ctx.globalAlpha = 0.8;
-        ctx.drawImage(watermarkImage, canvas.width - wmWidth - 12, canvas.height - wmHeight - 12, wmWidth, wmHeight);
+        ctx.drawImage(watermarkImage, canvas.width - wmWidth - 10, canvas.height - wmHeight - 10, wmWidth, wmHeight);
         ctx.globalAlpha = 1.0;
 
         const resultData = canvas.toDataURL('image/jpeg',0.92);
