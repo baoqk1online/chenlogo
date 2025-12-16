@@ -47,10 +47,10 @@ function processImage(file, index) {
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.drawImage(img, 0,0,img.width,img.height, 0,0,canvas.width,canvas.height);
 
-        const scale = 0.30;
+        const scale = 0.35;
         const wmWidth = canvas.width * scale;
         const wmHeight = (watermarkImage.height / watermarkImage.width) * wmWidth;
-        ctx.globalAlpha = 0.6;
+        ctx.globalAlpha = 0.8;
         ctx.drawImage(watermarkImage, canvas.width - wmWidth - 20, canvas.height - wmHeight - 20, wmWidth, wmHeight);
         ctx.globalAlpha = 1.0;
 
