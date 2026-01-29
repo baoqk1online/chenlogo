@@ -39,23 +39,37 @@ imageUpload.addEventListener("change", function(e) {
 function processImage(file, index) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
+
     reader.onload = function(event) {
       const img = new Image();
+
       img.onload = function() {
-        canvas.width = 1500;
-        canvas.height = 1000;
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.drawImage(img, 0,0,img.width,img.height, 0,0,canvas.width,canvas.height);
+        const targetWidth = 1500;
+        const ratio = img.height / img.width;
+        const targetHeight = Math.round(targetWidth * ratio);
+
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
 
         const scale = 0.37;
         const wmWidth = canvas.width * scale;
         const wmHeight = (watermarkImage.height / watermarkImage.width) * wmWidth;
+
         ctx.globalAlpha = 0.8;
-        ctx.drawImage(watermarkImage, canvas.width - wmWidth - 23, canvas.height - wmHeight - 3, wmWidth, wmHeight);
+        ctx.drawImage(
+          watermarkImage,
+          canvas.width - wmWidth - 23,
+          canvas.height - wmHeight - 3,
+          wmWidth,
+          wmHeight
+        );
         ctx.globalAlpha = 1.0;
 
-        const resultData = canvas.toDataURL('image/jpeg',0.92);
-        processedImages[index] = { name: `AC_${index+1}.jpg`, data: resultData };
+        const resultData = canvas.toDataURL('image/jpeg', 0.92);
+        processedImages[index] = { name: `AC_${index + 1}.jpg`, data: resultData };
 
         const resultDiv = document.createElement('div');
         resultDiv.className = 'image-box';
@@ -63,23 +77,27 @@ function processImage(file, index) {
         resultContainer.appendChild(resultDiv);
 
         const progressBar = document.getElementById(`progress-${index}`);
-        if(progressBar){
+        if (progressBar) {
           progressBar.style.width = '100%';
           progressBar.textContent = '100%';
         }
 
         resolve();
       };
+
       img.onerror = reject;
       img.src = event.target.result;
     };
+
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
 }
 
 applyBtn.addEventListener('click', async function() {
-  if (!watermarkImage) return alert('Watermark chưa sẵn sàng!');
+if (!watermarkImage.complete || watermarkImage.naturalWidth === 0) {
+  return alert('Watermark chưa sẵn sàng!');
+}
   if (!uploadedFiles.length) return alert('Hãy chọn ảnh để chèn watermark!');
 
   log.innerHTML += `<p>Bắt đầu chèn watermark cho ${uploadedFiles.length} ảnh...</p>`;
