@@ -1,27 +1,43 @@
-<link rel="stylesheet" href="style.css">
-
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Watermark Báo Quân khu 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
   <h2>Watermark Báo Quân khu 1</h2>
 
-  <label>Tải ảnh đã chỉnh sửa lên:</label><br />
+  <label>Tải ảnh lên:</label><br />
   <input type="file" id="imageUpload" accept="image/*" multiple />
 
-  <br /><br />
   <div class="controls">
     <button id="applyBtn" class="btn">Đóng dấu ảnh</button>
-    <button id="downloadAllBtn" class="btn" style="display:none;margin-left:8px;">Tải xuống tất cả</button>
+    <button id="downloadAllBtn" class="btn" style="display:none;">Tải xuống tất cả</button>
   </div>
 
+  <h3>Ảnh gốc</h3>
   <div id="progressContainer" class="image-container"></div>
+
+  <h3>Ảnh sau xử lý</h3>
   <div id="resultContainer" class="image-container"></div>
 
-  <div id="log" style="margin-top:20px;"></div>
+  <div id="log"></div>
 
   <footer>
-    <p>Báo Quân khu 1 - Phát triển bởi HD | &copy; từ 2025</p>
-  </footer>
+    <p>Báo Quân khu 1 – Phát triển bởi HD © 2025</p>
+  </footer>
 
-  <canvas id="canvas" style="display:none;"></canvas>
+  <!-- Modal xem full ảnh -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
   <canvas id="canvas" style="display:none;"></canvas>
 
   <script src="script.js"></script>
+</body>
+</html>
