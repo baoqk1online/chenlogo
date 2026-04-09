@@ -12,7 +12,7 @@ let processedImages = [];
 
 // Load watermark mặc định từ assets/watermark.png
 let watermarkImage = new Image();
-watermarkImage.src = 'Asset 2.png';
+watermarkImage.src = 'LOGO BQK1 MO.png';
 watermarkImage.onload = () => {
     log.innerHTML += '<p>Đã sẵn sàng! Xin mời Upload ảnh.</p>';
 };
@@ -54,7 +54,7 @@ function processImage(file, index) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
 
-        const scale = 0.37;
+        const scale = 0.28;
         const wmWidth = canvas.width * scale;
         const wmHeight = (watermarkImage.height / watermarkImage.width) * wmWidth;
 
