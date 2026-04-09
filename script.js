@@ -61,8 +61,8 @@ function processImage(file, index) {
         ctx.globalAlpha = 0.8;
         ctx.drawImage(
           watermarkImage,
-          canvas.width - wmWidth - (canvas.width * 0.02),
-          canvas.height - wmHeight - (canvas.height * 0.02),
+          (canvas.width * 0.98) - wmWidth,
+          (canvas.height * 0.98) - wmHeight,
           wmWidth,
           wmHeight
         );
