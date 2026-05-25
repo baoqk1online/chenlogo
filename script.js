@@ -58,7 +58,7 @@ function processImage(file, index) {
         const wmWidth = canvas.width * scale;
         const wmHeight = (watermarkImage.height / watermarkImage.width) * wmWidth;
 
-        ctx.globalAlpha = 0.8;
+        ctx.globalAlpha = 0.6;
         ctx.drawImage(
           watermarkImage,
           (canvas.width * 0.98) - wmWidth,
